@@ -176,7 +176,8 @@ def pep(session: CachedSession) -> list:
                 detail_status = tag.next_sibling.next_sibling.string
                 count_status[detail_status] += 1
 
-                preview_status = tr_tag.find(HTMLTag.TD).get_text(strip=True)[1:]
+                td_tag = tr_tag.find(HTMLTag.TD)
+                preview_status = td_tag.get_text(strip=True)[1:]
                 if detail_status not in EXPECTED_STATUS[preview_status]:
                     logging.info(
                         '\n'
