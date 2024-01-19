@@ -1,13 +1,13 @@
-import argparse
 import logging
 from logging.handlers import RotatingFileHandler
-from typing import KeysView
+from argparse import ArgumentParser
+from typing import KeysView as KeyV
 
 from constants import BASE_DIR, LOG_FORMAT, DT_FORMAT, OutputType
 
 
-def configure_argument_parser(available_modes: KeysView[str]) -> argparse.ArgumentParser:
-    parser = argparse.ArgumentParser(description='Парсер документации Python')
+def configure_argument_parser(available_modes: KeyV[str]) -> ArgumentParser:
+    parser = ArgumentParser(description='Парсер документации Python')
     parser.add_argument(
         'mode',
         choices=available_modes,
