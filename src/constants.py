@@ -28,7 +28,7 @@ VERSION_PATTERN = r'Python (?P<version>\d\.\d+) \((?P<status>.*)\)'
 PDF_A4_PATTERN = r'.+pdf-a4\.zip$'
 
 
-class OutputType(Enum):
+class OutputType(str, Enum):
     PRETTY = 'pretty'
     FILE = 'file'
 

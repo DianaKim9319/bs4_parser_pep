@@ -1,11 +1,12 @@
 import argparse
 import logging
 from logging.handlers import RotatingFileHandler
+from typing import KeysView
 
 from constants import BASE_DIR, LOG_FORMAT, DT_FORMAT, OutputType
 
 
-def configure_argument_parser(available_modes):
+def configure_argument_parser(available_modes: KeysView[str]) -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description='Парсер документации Python')
     parser.add_argument(
         'mode',
@@ -27,7 +28,7 @@ def configure_argument_parser(available_modes):
     return parser
 
 
-def configure_logging():
+def configure_logging() -> None:
     log_dir = BASE_DIR / 'logs'
     log_dir.mkdir(exist_ok=True)
     log_file = log_dir / 'parser.log'
